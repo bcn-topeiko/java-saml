@@ -22,8 +22,18 @@ public class JavaxSamlHttpResponse implements HttpResponse {
     }
 
     @Override
-    public void sendRedirect(String location) throws IOException {
+    public void sendRedirect(final String location) throws IOException {
         delegate.sendRedirect(location);
+    }
+
+    @Override
+    public void sendError(final int statusCode) throws IOException {
+        delegate.sendError(statusCode);
+    }
+
+    @Override
+    public void sendError(final int statusCode, final String message) throws IOException {
+        delegate.sendError(statusCode, message);
     }
 
     public static HttpResponse makeHttpResponse(HttpServletResponse delegate) {

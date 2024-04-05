@@ -2,6 +2,7 @@ package com.onelogin.saml2.servlet.jakarta;
 
 import com.onelogin.saml2.http.HttpRequest;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
 import java.util.Map;
@@ -20,6 +21,10 @@ public class JakartaSamlHttpRequest implements HttpRequest {
 
     private JakartaSamlHttpRequest(HttpServletRequest delegate) {
         this.delegate = checkNotNull(delegate, "Servlet request cannot be null.");
+    }
+
+    public HttpServletRequest getDelegate() {
+        return delegate;
     }
 
     @Override
@@ -63,6 +68,10 @@ public class JakartaSamlHttpRequest implements HttpRequest {
         if (session != null) {
             session.invalidate();
         }
+    }
+
+    public HttpSession getSession() {
+        return delegate.getSession();
     }
 
     public static HttpRequest makeHttpRequest(HttpServletRequest delegate) {

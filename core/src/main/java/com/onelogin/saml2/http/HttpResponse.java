@@ -10,6 +10,11 @@ import java.io.IOException;
  */
 public interface HttpResponse {
 
-    void sendRedirect(String location) throws IOException;
+    void sendRedirect(final String location) throws IOException;
+
+    void sendError(final int statusCode) throws IOException;
+
+    void sendError(final int statusCode, final String message) throws IOException;
+
 
 }
