@@ -19,6 +19,8 @@ public interface HttpRequest {
 
     int getServerPort();
 
+    Object getAttribute(String path);
+
     String getScheme();
 
     String getServerName();

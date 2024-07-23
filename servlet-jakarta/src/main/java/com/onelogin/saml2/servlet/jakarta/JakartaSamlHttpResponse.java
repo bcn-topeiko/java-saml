@@ -1,10 +1,12 @@
 package com.onelogin.saml2.servlet.jakarta;
 
 import com.onelogin.saml2.http.HttpResponse;
-import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletResponse;
 
 import java.io.IOException;
+import java.util.Collection;
+import java.util.Map;
+import java.util.function.Supplier;
 
 import static com.onelogin.saml2.util.Preconditions.checkNotNull;
 
@@ -32,8 +34,88 @@ public class JakartaSamlHttpResponse implements HttpResponse {
     }
 
     @Override
+    public void setDateHeader(String name, long date) {
+        delegate.setDateHeader(name, date);
+    }
+
+    @Override
+    public void addDateHeader(String name, long date) {
+        delegate.addDateHeader(name, date);
+    }
+
+    @Override
+    public void setHeader(String name, String value) {
+        delegate.setHeader(name, value);
+    }
+
+    @Override
+    public void addHeader(String name, String value) {
+        delegate.addHeader(name, value);
+    }
+
+    @Override
+    public void setIntHeader(String name, int value) {
+        delegate.setIntHeader(name, value);
+    }
+
+    @Override
+    public void addIntHeader(String name, int value) {
+        delegate.addIntHeader(name, value);
+    }
+
+    @Override
+    public void setStatus(int sc) {
+        delegate.setStatus(sc);
+    }
+
+    @Override
+    public int getStatus() {
+        return delegate.getStatus();
+    }
+
+    @Override
+    public String getHeader(String name) {
+        return delegate.getHeader(name);
+    }
+
+    @Override
+    public Collection<String> getHeaders(String name) {
+        return delegate.getHeaders(name);
+    }
+
+    @Override
+    public Collection<String> getHeaderNames() {
+        return delegate.getHeaderNames();
+    }
+
+    @Override
+    public void setTrailerFields(Supplier<Map<String, String>> supplier) {
+        delegate.setTrailerFields(supplier);
+    }
+
+    @Override
+    public Supplier<Map<String, String>> getTrailerFields() {
+        return delegate.getTrailerFields();
+    }
+
+    @Override
     public void sendError(final int statusCode) throws IOException {
         delegate.sendError(statusCode);
+    }
+
+    @Override
+    public boolean containsHeader(String name) {
+        return delegate.containsHeader(name);
+    }
+
+    @Override
+    public String encodeURL(String url) {
+        return delegate.encodeURL(url);
+    }
+
+    @Override
+    public String encodeRedirectURL(String url) {
+        return delegate.encodeRedirectURL(url);
     }
 
     @Override
@@ -44,5 +126,4 @@ public class JakartaSamlHttpResponse implements HttpResponse {
     public static HttpResponse makeHttpResponse(HttpServletResponse delegate) {
         return new JakartaSamlHttpResponse(delegate);
     }
-
 }

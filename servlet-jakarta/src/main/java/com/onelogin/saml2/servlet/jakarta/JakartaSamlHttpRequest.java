@@ -33,6 +33,11 @@ public class JakartaSamlHttpRequest implements HttpRequest {
     }
 
     @Override
+    public Object getAttribute(String path) {
+        return delegate.getAttribute(path);
+    }
+
+    @Override
     public String getScheme() {
         return delegate.getScheme();
     }
