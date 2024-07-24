@@ -89,6 +89,11 @@ public class TestHttpRequest implements HttpRequest {
     }
 
     @Override
+    public Object getAttribute(String path) {
+        return null;
+    }
+
+    @Override
     public String getScheme() {
         throw new UnsupportedOperationException();
     }
