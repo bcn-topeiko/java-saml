@@ -58,6 +58,16 @@ public class JavaxSamlHttpRequest implements HttpRequest {
     }
 
     @Override
+    public String getMethod() {
+        return delegate.getMethod();
+    }
+
+    @Override
+    public String getHeader(String header) {
+        return delegate.getHeader(header);
+    }
+
+    @Override
     public Map<String, String[]> getParameterMap() {
         return delegate.getParameterMap();
     }

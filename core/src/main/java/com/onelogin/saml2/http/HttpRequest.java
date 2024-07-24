@@ -31,6 +31,10 @@ public interface HttpRequest {
 
     String getQueryString();
 
+    String getMethod();
+
+    String getHeader(String header);
+
     void invalidateSession();
 
     Map<String, String[]> getParameterMap();
