@@ -20,7 +20,7 @@ public class JakartaSamlHttpResponse implements HttpResponse {
 
     private final HttpServletResponse delegate;
 
-    private JakartaSamlHttpResponse(HttpServletResponse delegate) {
+    public JakartaSamlHttpResponse(HttpServletResponse delegate) {
         this.delegate = checkNotNull(delegate, "Servlet response cannot be null.");
     }
 

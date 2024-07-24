@@ -19,7 +19,7 @@ public class JakartaSamlHttpRequest implements HttpRequest {
 
     private final HttpServletRequest delegate;
 
-    private JakartaSamlHttpRequest(HttpServletRequest delegate) {
+    public JakartaSamlHttpRequest(HttpServletRequest delegate) {
         this.delegate = checkNotNull(delegate, "Servlet request cannot be null.");
     }
 
