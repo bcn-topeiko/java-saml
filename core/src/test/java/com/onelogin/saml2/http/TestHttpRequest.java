@@ -125,6 +125,16 @@ public class TestHttpRequest implements HttpRequest {
     }
 
     @Override
+    public String getMethod() {
+        return "";
+    }
+
+    @Override
+    public String getHeader(String header) {
+        return "";
+    }
+
+    @Override
     public Map<String, String[]> getParameterMap() {
         throw new UnsupportedOperationException();
     }
